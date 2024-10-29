@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import { PiGraph } from "react-icons/pi";
 import { BsSoundwave } from "react-icons/bs";
 
@@ -22,7 +21,7 @@ const BabbleButton = ({ onStartRecording }) => {
     navigator.mediaDevices
       .getUserMedia({ audio: true })
       .then(() => setCountdown(3))
-      .catch((err) => alert("Mic permission denied!"));
+      .catch(() => alert("Mic permission denied!"));
   };
 
   return (
@@ -30,21 +29,19 @@ const BabbleButton = ({ onStartRecording }) => {
       <h1>Babble</h1>
 
       <div
-        className="flex justify-center items-center min-h-screen"
+        className="flex justify-center items-center h-screen"
         style={{ backgroundColor: "rgba(47, 72, 88, 1)" }}
       >
         {countdown === null ? (
           <div
-            className="border border-white rounded-lg flex justify-center items-center"
+            className="border border-white rounded-lg flex flex-col justify-center items-center space-y-8 h-screen-58 xl:h-screen-63"
             style={{
               width: "80vw",
-              height: "56vh",
-              padding: "4vw",
             }}
           >
             <button
               onClick={handleButtonClick}
-              className="rounded-full flex justify-center items-center text-xl font-bold bg-transparent text-white"
+              className="relative rounded-full flex justify-center items-center text-xl font-bold bg-transparent text-white"
               style={{
                 width: "5rem",
                 height: "5rem",
@@ -54,11 +51,12 @@ const BabbleButton = ({ onStartRecording }) => {
             >
               Babble
             </button>
-            <div className="absolute flex flex-row justify-center items-center gap-4 mt-96">
+
+            {/* Icon container positioned just above the button's bottom border */}
+            <div className="absolute bottom-0 mb-4 flex flex-row justify-center items-center gap-4">
               <div
                 className="rounded-full border border-white p-1 flex justify-center items-center"
                 style={{ width: "3rem", height: "3rem" }}
-                ng
               >
                 <div
                   className="bg-black rounded-full flex justify-center items-center"

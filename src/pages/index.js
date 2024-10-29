@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "../components/NavBar";
 import BabbleButton from "../components/BabbleButton";
 import Waveform from "../components/Waveform";
+import Footer from "@/components/Footer";
 
 const HomePage = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -29,7 +30,7 @@ const HomePage = () => {
 
   return (
     <div
-      className="h-full max-w-screen"
+      className="h-full max-w-full"
       style={{ backgroundColor: "rgba(47, 72, 88, 1)" }}
     >
       <Navbar />
@@ -44,6 +45,7 @@ const HomePage = () => {
           isStopped={isStopped}
         />
       )}
+      <Footer />
     </div>
   );
 };
